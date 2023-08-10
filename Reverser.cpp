@@ -14,14 +14,14 @@ std::string Reverser::reverseString(std::string str)
     std::string remaining_str = str.substr(0, str.length()-1);
     return last_char + reverseString(remaining_str);
 }
-
-int Reverser::reverseDigit(int digit)
+ 
+int Reverser::reverseDigit(int value) 
 {
-    if (digit<10)
-        return digit;
+    if (value<10)
+        return value;
 
-    int lastDigit = digit % 10; 
-    int rem_digit = digit / 10;
+    int lastDigit = value % 10; 
+    int rem_digit = value / 10;
 
     while (rem_digit>0)
     {
@@ -29,6 +29,6 @@ int Reverser::reverseDigit(int digit)
         lastDigit *= 10;
     }
     
-    return lastDigit + reverseDigit(digit/10);
+    return lastDigit + reverseDigit(value/10);
 }
 

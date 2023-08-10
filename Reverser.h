@@ -9,7 +9,7 @@ class Reverser
     public:
     Reverser();
     std::string reverseString(std::string str);
-    int reverseDigit(int digit);
+    int reverseDigit(int value);
 
 };
 
