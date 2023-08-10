@@ -7,7 +7,7 @@ Reverser::Reverser()
 
 std::string Reverser::reverseString(std::string str)
 {
-    if (str.length()==1)
+    if (str.length()<=1)
         return str;
     
     char last_char = str.back();
