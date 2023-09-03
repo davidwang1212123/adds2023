@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include "BubbleSort.h"
@@ -7,7 +8,7 @@
 
 //void test_sort_search(int sortType, int searchValue);
 
-int main(int argc, char *argv[])
+int main()
 {
   const int SEARCH_VALUE = 1;
 
@@ -20,10 +21,16 @@ int main(int argc, char *argv[])
     //return 0;
 
     // obtain integer list
-    if (argc <= 1)
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream ss(input);
+    std::string number;
+    std::vector<int> list;
+
+    while (ss >> number)
     {
-      std::cout << "no integer is provided." << std::endl;
-      return 0;
+      list.push_back(std::stoi(number));
     }
 
     std::vector<int> list;
