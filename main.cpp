@@ -5,7 +5,7 @@
 #include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
 
-void test_sort_search(int sortType, int searchValue);
+//void test_sort_search(int sortType, int searchValue);
 
 int main(int argc, char *argv[])
 {
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
   return 0;
 }
-
+/*
 void test_sort_search(int sortType, int searchValue)
 {
   const int SEARCH_VALUE_NO_SEARCH = 888;
@@ -127,4 +127,4 @@ void test_sort_search(int sortType, int searchValue)
       std::cout << std::endl;
   }
 }
-
+*/
