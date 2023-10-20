@@ -12,13 +12,13 @@ DocumentManager::~DocumentManager() {}
 
 void DocumentManager::addDocument(string name, int id, int license_limit) {
   // validate parameters
-  if (license_limit <= 0)
-    return;
+  //if (license_limit <= 0)
+  //  return;
 
   string nameLC;
   nameLC.clear();
 
-  for (int i = 0; i < name.size(); i++) {
+  for (int i = 0; i < int(name.size()); i++) {
     nameLC.push_back(tolower(name.at(i)));
   }
 
@@ -50,7 +50,7 @@ int DocumentManager::search(string name) {
   string nameLC;
   nameLC.clear();
 
-  for (int i = 0; i < name.size(); i++) {
+  for (int i = 0; i < int(name.size()); i++) {
     nameLC.push_back(tolower(name.at(i)));
   }
 
@@ -70,7 +70,7 @@ bool DocumentManager::borrowDocument(int docID, int patronID) {
   if (itrPatron == m_patronSet.end())
     return false;
 
-  if (itrDocumentInfo->second.loan_count == itrDocumentInfo->second.license_limit)
+  if (itrDocumentInfo->second.loan_count >= itrDocumentInfo->second.license_limit)
     return false;
   else
   {
