@@ -15,17 +15,24 @@ void DocumentManager::addDocument(string name, int id, int license_limit) {
   if (license_limit <= 0)
     return;
 
+  string nameLC;
+  nameLC.clear();
+
+  for (int i = 0; i < name.size(); i++) {
+    nameLC.push_back(tolower(name.at(i)));
+  }
+
   map<string, int>::iterator itr1 = m_documentSearchMap.end();
   map<int, DocumentInfoT>::iterator itr2 = m_documentInfoMap.end();
 
-  itr1 = m_documentSearchMap.find(name);
+  itr1 = m_documentSearchMap.find(nameLC);
   itr2 = m_documentInfoMap.find(id);
 
   // either the document name or id already exists
   if ((itr1 != m_documentSearchMap.end()) || (itr2 != m_documentInfoMap.end()))
     return;
 
-  m_documentSearchMap.insert(pair<string, int>(name, id));
+  m_documentSearchMap.insert(pair<string, int>(nameLC, id));
   
   DocumentInfoT documentInfo;
   documentInfo.license_limit = license_limit;
@@ -40,7 +47,14 @@ void DocumentManager::addPatron(int patronID) {
 }
 
 int DocumentManager::search(string name) {
-  map<string, int>::iterator itr = m_documentSearchMap.find(name);
+  string nameLC;
+  nameLC.clear();
+
+  for (int i = 0; i < name.size(); i++) {
+    nameLC.push_back(tolower(name.at(i)));
+  }
+
+  map<string, int>::iterator itr = m_documentSearchMap.find(nameLC);
   if (itr == m_documentSearchMap.end())
     return 0;
   else
